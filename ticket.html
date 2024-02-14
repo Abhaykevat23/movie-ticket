@@ -1,0 +1,150 @@
+<html>
+    <style>
+        .head{font-size: 50px;color:black;}
+        html{background-image: url('back.png')}
+        .p{font-size: 40px;background-color:lightblue;}
+        .tab1,.tab2,.tab3{font-family: 'Courier New', Courier, monospace;font-size: 30px;text-align:center;color:blue}
+        .b1,.b2{font-size: 23px;background-color: aqua;}
+        .b3{background-color: orange;font-size: 23px;}
+        .h1,.h2{color:blue;}
+        input{background-color: aqua;}
+    </style>
+    <script src="j.min.js"></script>
+    <script>
+    var i=0;
+    var images=[];
+    var time=1000;
+
+images[0]='1.jpg';
+images[1]='2.jpg';
+images[2]='3.jpg';
+images[3]='4.jpg';
+images[4]='5.png';
+
+var l=images.length;
+function changeImg()
+{
+    document.slide.src = images[i];
+    if(i<l-1)
+    {
+        i++
+    }
+    else
+    {
+        i=0;
+    }
+}
+setInterval("changeImg()",time);
+window.onload = changeImg;</script>
+
+
+    <script>
+        $(document).ready(function(){
+            $(".tab2").slideUp(10); 
+            $("marquee").fadeTo(1,0.9);
+
+            $(".b2").click(function(){
+                $(".tab1").slideUp(10);
+                $(".tab2").slideDown(20);
+            });
+            
+            $(".b3").click(function(){
+                $(".t1,.t2,.t3,.t4,.t5,.tt1,.tt2").val("");
+            });
+            
+            $(".t4").blur(function(){
+                var s=$(".t4").val();
+                var s1=s.indexOf("@");
+                var s2=s.indexOf(".");
+
+                if(s1>0 && s1<s2-1)
+                {
+                    $(".tt4").text("VALID E-MAIL ADDRESS");              //sign up E-MAIL
+                }
+                else
+                {
+                    $(".t4").css({"border-color":"red","border-width":"5px"});
+                    $(".tt4").text("INVALID E-MAIL ADDRESS");
+                }                   
+            });
+            
+            $(".tt1").blur(function(){
+                var su=$(".tt1").val();
+                var su1=$(".t4").val();
+
+                if(su1==su)
+                {
+                    $(".ttt1").text("valid email");                       //login e-mail
+                }
+                else
+                {
+                    $(".tt1").css({"border-color":"red","border-width":"5px"});
+                    $(".ttt1").text("In-valid email");
+                }
+            });
+
+            $(".t5").blur(function(){
+                var p=$(".t5").val();
+                var l=p.length;
+                if(l==4)
+                {
+                    window.open("movie.html");          //password 1
+                }
+                else
+                {
+                    $(".t5").css({"border-color":"red","border-width":"5px"});
+                    alert("please enter 4 digit password");
+                    //break;
+                }
+            });
+
+            $(".tt2").blur(function(){
+                var p1=$(".t5").val();
+                var p2=$(".tt2").val();
+                if(p1==p2)
+                {
+                    window.open("movie.html");
+                }
+                else
+                {
+                    alert("please enter CORRECT password");
+                    //break;
+                }
+            });
+
+            $(".b1").click(function(){
+                $(".tab2").slideUp(10);
+                $(".tab1").slideDown(2000);
+            });
+        });                                        //node.js useable for data transfer
+    </script>
+    <h1 align="center" class="head">ANAND CINEMA MAGIC</h1>
+    <table class="tab1" align="center">
+        <tr><td colspan="2"><h2 class="h1">SIGN-UP PAGE</h2></td></tr>
+        <tr><td>NAME :</td><td><input type="text" class="t1"></td></tr>
+        <tr><td>MOBILE NO.:</td><td><input type="number" class="t2"></td></tr>
+        <tr><td>CITY :</td><td><input type="text" class="t3"></td></tr>
+        <tr><td>E-MAIL :</td><td><input type="text" class="t4"></td><td class="tt4">*</td></tr>
+        <tr><td>PASSWORD:</td><td><input type="password" class="t5" placeholder="4 digit"></td></tr>
+    </table>
+
+    <table class="tab2" align="center">
+        <tr><td colspan="2"><h1 class="h2">LOGIN PAGE</h1></td></tr>
+        <tr><td>E-MAIL :</td><td><input type="text" class="tt1"></td><td class="ttt1">*</td></tr>
+        <tr><td>PASSWORD:</td><td><input type="password" class="tt2" placeholder="4 digit"></td></tr>
+    </table>
+    <table class="tab3" align="center">
+        <tr><td><button class="b1">SIGN-UP</button> <button class="b2">LOGIN</button></td></tr>
+        <tr><td></td></tr>
+        <tr><td><button class="b3">CLEAR</button></td></tr>
+    </table>
+    <marquee scrollamount="10" behaviour="slide" loop="20" class="m"><img src="1.jpg" height="300px"><img src="2.jpg" height="300px"><img src="3.jpg" height="300px"><img src="4.jpg" height="300px"></marquee>
+    
+    <p class="p">THIS IS A WEB-SITE OF 'ANAND CINEMA MAGIC' CINEMA HALL . THIS IS PLACED IN BILIMORA & THIS CINEMA WAS ONE OF THE SINGLE CINEMA HALL IN BILIMORA ,THIS CINEMA PROVIDES COLD-DRINKS AND WAFERS OF BALAGI COMPANY AND THIS CINEMA ALSO SELL POPCORNS IN HALL . PLEASE VISITE OUR CINEMA ONCE TIME . THANK YOU .</p>
+
+    <!--<span class="s1">THIS IS AN COOLEST SMARTPHONES,<br>
+        FOR GAMING , IT'S LAUNCH IN 31-MAR-2022.
+    </span>--> <span align="center"><img name="slide" height=400 width=500 /></span><br>
+    
+    
+</html>

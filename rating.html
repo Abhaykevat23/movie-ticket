@@ -1,0 +1,41 @@
+<html>
+    <style>
+        html{background-color:aquamarine }
+        table{background-color: aqua;font-size: 30px;}
+        input,textarea{font-size: 30px;}
+        .b2,.b3{background-color: orange;}
+    </style>
+    <script src="j.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        var a=$(".tr").attr("maxlength");
+        $(".tr").keyup(function(){
+        var t=$(".tr").val().length;
+        var c=a-t;
+        document.getElementById("d").innerHTML="<h6 style='color:red' >"+"REMAINING "+"<br>" +" WORDS"+"<br>"+"<u>"+c+"</u>"+"</h6>";
+        });
+
+        $(".br").click(function(){
+            var x=$(".t").val("*");
+            for(var i=0;i<5;i++)
+            {
+                $(".t").val("*");
+            }
+        });
+
+        $(".b1").click(function(){
+            alert("thanks for visite our web site");
+        });
+        
+    });
+    </script>
+<h1 align="center">RATING AND REVIEW</h1>
+    <table align="center" border="5">
+        
+        <tr><td>RATING PLEASE</td><td><button class="br">RATE</button></td></tr>
+        <tr><td colspan="2"><input type="text" class="t"></td></tr>
+        <tr><td><textarea maxlength="30" class="tr"></textarea></td><td id="d" >*</td></tr>
+        <tr><td align="center"><button class="b2">SHARE</button></td><td align="center"><button class="b3">SUBSCRIBE</button></td></tr>
+        <tr><td colspan="2" align="center"><button class="b1">SUBMIT</button></td></tr>
+    </table>
+</html>

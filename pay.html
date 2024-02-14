@@ -1,0 +1,65 @@
+<html>
+    <style>
+        html{background-color: aquamarine;}
+        table{background-color: aqua;font-size: 30px;}
+        input,button{font-size: 20px;}
+    </style>
+    <script src="j.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".b").hide(1);
+
+        var tr=sessionStorage.getItem("get");
+        
+        $(".price").text(tr);
+        $(".b").click(function(){
+            window.open("rating.html");
+        });
+
+        $(".otp").click(function(){                 
+            var a=Math.floor(Math.random()*10000);
+            alert(a);
+            var b=prompt("ENTER OTP:");
+            if(a==b)
+            {
+                $(".b").show(1000);
+                $(".otp").hide(1000);
+            }
+            else
+            {
+                alert("wrong OTP RE-ENTER PLEASE");
+                var c=Math.floor(Math.random()*10000);
+                alert(c);
+                var d=prompt("ENTER OTP:");
+                if(c==d)
+                {
+                    $(".b").show(1000);
+                    $(".otp").hide(1000);
+                }
+            }
+            
+        });
+
+        
+    });
+    </script>
+    <h1 align="center">PAYMENT PAGE</h1>
+    <table align="center" border="7">
+        <tr><td>SELECT BANK :</td><td>
+            <select><option>BANK OF BARODA</option>
+                <option>BANK OF INDIA</option>
+                <option>STATE BANK OF INDIA</option>
+                <option>HDFC BANK</option>
+                <option>DENA BANK</option></select></td></tr>
+        
+        <tr><td>BRANCH NAME:</td><td><input type="text" ></td></tr>
+        <tr><td>HOLDER NAME:</td><td><input type="text" ></td></tr>
+        <tr><td>A/C NO :</td><td><input type="number" ></td></tr>
+        <tr><td>MOBILE NO :</td><td><input type="number"></td></tr>
+        <tr><td>PRICE :</td><td class="price">*</td></tr>
+        <tr><td colspan="2" align="center"><button class="otp">GET OTP</button></td></tr>
+        <tr><td colspan="2" align="center"><button class="b">PAY</button></td></tr>
+        
+        
+    </table>
+</html>
